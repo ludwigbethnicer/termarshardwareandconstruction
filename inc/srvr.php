@@ -22,4 +22,5 @@
 	// $cwebzite	= "google.com";
 	// $dcurrencyx	= "$";
 
-	$gauthlogin	= "775302666686-j83mcm9edhjb2gd80a7k3ctehpuuqipv.apps.googleusercontent.com";
+	$gauthlogin	= "372914928938-0bc8mka01l2t4t0e847eksd9njbjmvie.apps.googleusercontent.com";
+	// Client Secret: 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
