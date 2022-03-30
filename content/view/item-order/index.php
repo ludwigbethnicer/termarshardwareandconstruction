@@ -28,7 +28,9 @@
 						<th class="remove-dropdown"></th>
 						<th></th>
 						<th></th>
+						<th class="remove-dropdown d-none"></th>
 						<th></th>
+						<th class="remove-dropdown d-none"></th>
 						<th></th>
 						<th></th>
 						<th></th>
@@ -59,6 +61,8 @@
 						<th class="text-left">Action</th>
 						<th>Date</th>
 						<th>Remarks</th>
+						<th class="d-none">Remarks</th>
+						<th class="d-none">Status</th>
 						<th>Status</th>
 						<th>Order#</th>
 						<th>Receipt</th>
@@ -167,6 +171,7 @@
 									</a>
 								</td>
 								<td data-filter="<?php echo $created; ?>"><?php echo $created; ?></td>
+								<td data-filter="<?php echo $remarks; ?>" class="d-none"><?php echo $remarks; ?></td>
 								<td data-filter="<?php echo $remarks; ?>">
 									<select name="remarks" class="<?php echo $rbsTxtColor; ?>" onchange="fnChngeRenarks(<?php echo $orderid; ?>,this.value);">
 										<option value="Checkout" class="text-danger" <?php if($remarks=='Checkout') echo 'selected="selected"'; ?>>Checkout</option>
@@ -177,6 +182,7 @@
 										<option value="Complete" class="text-success" <?php if($remarks=='Complete') echo 'selected="selected"'; ?>>Complete</option>
 									</select>
 								</td>
+								<td data-filter="<?php echo $status; ?>"  class="d-none"><?php echo $status; ?></td>
 								<td data-filter="<?php echo $status; ?>" class="<?php echo $sbsTxtColor; ?>" title="<?php echo $titled; ?>">
 									<select name="status" class="<?php echo $sbsTxtColor; ?>" onchange="fnChngeStatus(<?php echo $orderid; ?>,this.value);">
 										<option value="Unpaid" class="text-danger" <?php if($status=='Unpaid') echo 'selected="selected"'; ?>>Unpaid</option>
@@ -217,7 +223,9 @@
 						<td></td>
 						<td></td>
 						<td></td>
+						<td class="remove-dropdown d-none"></td>
 						<td></td>
+						<td class="remove-dropdown d-none"></td>
 						<td></td>
 						<td></td>
 						<td></td>

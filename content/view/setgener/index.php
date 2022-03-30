@@ -22,9 +22,8 @@
 	$vmobileno = $row_curr['mobileno'];
 	$vmaddress = $row_curr['maddress'];
 	$vidletime = $row_curr['idletime'];
-	$vthemename = $row_curr['themename'];
-	$vdomainhome = $row_curr['domainhome'];
 	$vgeo_map = $row_curr['geo_map'];
+	$vnavbarorrient = $row_curr['nav_bar_orrient'];
 ?>
 
 <main class="page-content">
@@ -135,40 +134,6 @@
 				<div class="col-lg-6">
 					<div class="input-group mb-3 input-group-sm">
 						<div class="input-group-prepend">
-							<span class="input-group-text">Theme</span>
-						</div>
-						<input id="idxthemename" type="text" class="form-control" placeholder="Theme" name="idxthemename" list="lstgroupby" required value="<?php echo $vthemename; ?>">
-						<datalist id="lstgroupby">
-							<?php
-								$tblname = "tblthemename";
-								$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-								$qry_grpby = $cnn->prepare("SELECT themename FROM {$tblname} WHERE deletedx=0 ORDER BY themename ASC");
-								$qry_grpby->execute();
-								$rslt_grpby = $qry_grpby->setFetchMode(PDO::FETCH_ASSOC);
-								foreach ($qry_grpby as $row_grpby) {
-									echo "<option value='".$row_grpby['themename']."'>";
-								}
-							?>
-						</datalist>
-						<div class="valid-feedback">Valid.</div>
-						<div class="invalid-feedback">Please fill out this field.</div>
-					</div>
-				</div>
-
-				<div class="col-lg-6">
-					<div class="input-group mb-3 input-group-sm">
-						<div class="input-group-prepend">
-							<span class="input-group-text">Domain Directory</span>
-						</div>
-						<input id="idxdomainhome" type="text" class="form-control" placeholder="Domain Directory" name="idxdomainhome" required value="<?php echo $vdomainhome; ?>">
-						<div class="valid-feedback">Valid.</div>
-						<div class="invalid-feedback">Please fill out this field.</div>
-					</div>
-				</div>
-
-				<div class="col-lg-6">
-					<div class="input-group mb-3 input-group-sm">
-						<div class="input-group-prepend">
 							<span class="input-group-text">Location Coordinate</span>
 						</div>
 						<input id="idxgeo_map" type="text" class="form-control" placeholder="Location Coordinate" name="idxgeo_map" required value="<?php echo $vgeo_map; ?>">
@@ -178,9 +143,23 @@
 				</div>
 
 				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Menu Position</span>
+						</div>
+						<select id="idxnavbarorrient" name="idxnavbarorrient" class="form-control" required>
+							<option value="sticky-top" <?php if($vnavbarorrient=='sticky-top') echo 'selected="selected"'; ?>>Sticky Top</option>
+							<option value="fixed-top" <?php if($vnavbarorrient=='fixed-top') echo 'selected="selected"'; ?>>Fix Top</option>
+						</select>
+						<div class="valid-feedback">Valid.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
 					<div class="card">
 						<div class="bg-secondary" style="height: 100px;">
-							<img class="card-img-top" src="../../storage/img/<?php echo $vsys_logo; ?>" alt="System Logo" style="height: inherit; object-fit: contain;">
+							<img class="card-img-top" src="<?php echo '../../content/theme/'.$themename.'/storage/img/'.$vsys_logo; ?>" alt="System Logo" style="height: inherit; object-fit: contain;">
 						</div>
 					</div>
 					<div class="input-group mb-3 input-group-sm">
@@ -196,7 +175,7 @@
 				<div class="col-lg-6">
 					<div class="card">
 						<div class="bg-secondary" style="height: 100px;">
-							<img class="card-img-top" src="../../storage/img/<?php echo $vnavbar_logo; ?>" alt="Navbar Logo" style="height: inherit; object-fit: contain;">
+							<img class="card-img-top" src="<?php echo '../../content/theme/'.$themename.'/storage/img/'.$vnavbar_logo; ?>" alt="Navbar Logo" style="height: inherit; object-fit: contain;">
 						</div>
 					</div>
 					<div class="input-group mb-3 input-group-sm">
@@ -212,7 +191,7 @@
 				<div class="col-lg-6">
 					<div class="card">
 						<div class="bg-secondary" style="height: 100px;">
-							<img class="card-img-top" src="../../storage/img/<?php echo $vfavicon; ?>" alt="Web Icon" style="height: inherit; object-fit: contain;">
+							<img class="card-img-top" src="<?php echo '../../content/theme/'.$themename.'/storage/img/'.$vfavicon; ?>" alt="Web Icon" style="height: inherit; object-fit: contain;">
 						</div>
 					</div>
 					<div class="input-group mb-3 input-group-sm">
@@ -253,6 +232,7 @@
 				$_POST['idxsys_ver']
 			)) {
 				$err_msg = "Please fill-up the form properly.";
+				echo "<script>alert('".$err_msg."');window.location='../../routes/setgener';</script>";
 			} else {
 				// search for duplicate
 				$stblname = "conf";
@@ -269,9 +249,8 @@
 				$setstr_mobileno = "mobileno";
 				$setstr_maddress = "maddress";
 				$setstr_idletime = "idletime";
-				$setstr_themename = "themename";
-				$setstr_domainhome = "domainhome";
 				$setstr_geo_map = "geo_map";
+				$setstr_nav_bar_orrient = "nav_bar_orrient";
 
 				$qry_insert = "UPDATE {$stblname} SET 
 					{$setstr_cmpny_name}=:cmpny_name, 
@@ -287,9 +266,8 @@
 					{$setstr_mobileno}=:mobileno, 
 					{$setstr_maddress}=:maddress, 
 					{$setstr_idletime}=:idletime, 
-					{$setstr_themename}=:themename, 
-					{$setstr_domainhome}=:domainhome, 
-					{$setstr_geo_map}=:geo_map 
+					{$setstr_geo_map}=:geo_map, 
+					{$setstr_nav_bar_orrient}=:navbarorrient
 				";
 				$stmt_insert = $cnn->prepare($qry_insert);
 				$itxtcmpny_name = $_POST['idxcmpny_name'];
@@ -305,9 +283,8 @@
 				$itxtmobileno = $_POST['idxmobileno'];
 				$itxtmaddress = $_POST['idxmaddress'];
 				$itxtidletime = $_POST['idxidletime'];
-				$itxtthemename = $_POST['idxthemename'];
-				$itxtdomainhome = $_POST['idxdomainhome'];
 				$itxtgeo_map = $_POST['idxgeo_map'];
+				$itxtnavbarorrient = $_POST['idxnavbarorrient'];
 				$stmt_insert->bindParam(':cmpny_name', $itxtcmpny_name);
 				$stmt_insert->bindParam(':sys_name', $itxtsys_name);
 				$stmt_insert->bindParam(':sys_ver', $itxtsys_ver);
@@ -321,9 +298,8 @@
 				$stmt_insert->bindParam(':mobileno', $itxtmobileno);
 				$stmt_insert->bindParam(':maddress', $itxtmaddress);
 				$stmt_insert->bindParam(':idletime', $itxtidletime);
-				$stmt_insert->bindParam(':themename', $itxtthemename);
-				$stmt_insert->bindParam(':domainhome', $itxtdomainhome);
 				$stmt_insert->bindParam(':geo_map', $itxtgeo_map);
+				$stmt_insert->bindParam(':navbarorrient', $itxtnavbarorrient);
 				$stmt_insert->execute();
 
 				$err_msg = "Update successfully.";

@@ -140,13 +140,13 @@ function FnPhoneURLTarget(elem) {
 }
 
 /** Forgot Password: Empty Username not proceed **/
-function fnforgotpw() {
+function fnforgotpw(usemail) {
 	const input_unamez = document.querySelector("#username");
 	let name = input_unamez.value;
 	if (name==null || name.length==0) {
 		alert("Enter Username.");
 	} else {
-		window.open("../../routes/forgotpw");
+		window.open("../../routes/forgotpw?usemail="+usemail, "_self");
 	}
 };
 

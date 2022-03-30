@@ -6,6 +6,10 @@
 	} else {
 		$curr_uidzer = $_SESSION["usercode"];
 	}
+
+	if ($_SESSION["gogfirstime"]==1) {
+		header("location:../../");
+	}
 ?>
 
 <div class="container">

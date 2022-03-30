@@ -1,6 +1,9 @@
 <?php
 	include_once "../../content/theme/".$themename."/frontend-navbar.php";
 	include_once "../../content/theme/".$themename."/carousel-header.php";
+	?>
+	<div class="pt-5 pb-5" style="background-color: transparent;">
+	<?php
 	include_once "../../content/theme/".$themename."/template-part/aboutus.php";
 	if ( empty($geomap) ) {
 		echo "<p align='center'>Can't Load Map.</p>";

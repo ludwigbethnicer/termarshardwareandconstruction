@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: transparent;">
 	<a class="navbar-brand" href="<?php echo $domainhome; ?>">
-		<img id="mlogo" src="<?php echo $domainhome; ?>storage/img/logo.png">
+		<img id="mlogo" src="<?php echo $domainhome.'content/theme/'.$themename.'/storage/img/'.$navbarlogo; ?>">
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 		<span class="navbar-toggler-icon"></span>

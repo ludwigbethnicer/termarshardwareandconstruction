@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 05, 2022 at 06:31 AM
+-- Generation Time: Mar 30, 2022 at 04:05 PM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -61,6 +61,7 @@ CREATE TABLE `conf` (
   `build_by` varchar(254) NOT NULL,
   `cwebzite` varchar(254) NOT NULL,
   `dcurrencyx` varchar(15) NOT NULL,
+  `nav_bar_orrient` text NOT NULL,
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -68,8 +69,8 @@ CREATE TABLE `conf` (
 -- Dumping data for table `conf`
 --
 
-INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `geo_map`, `build_by`, `cwebzite`, `dcurrencyx`, `modified`) VALUES
-(1, 'Termar\'s Hardware and Constraction', 'Termar\'s Hardware and Constraction', '1.0.0', 'logo.png', 'logo.svg', 'logo.png', 'Online hardware can help them improve the concerns of the customers.', 'Engr. Allan Poserio', 'info@termarshardwareandconstruction.com', '(062) 957-2826', '0917-115-5270', 'Purok Citrus, Poblacion Ipil, Zamboanga Sibugay, PH 07001', 5, 'default', '/alphaphpn/termarshardwareandconstruction/', '', '20220208', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.7827982,122.5859749', 'Divina Tadeo Ochovillo, Beverly Pestaño Apatan, Rovilyn Fernandez Maico, Crisjen Remegio Dequin', 'termarshardwareandconstruction.com', '&#8369;', '2022-03-05 05:20:33');
+INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `geo_map`, `build_by`, `cwebzite`, `dcurrencyx`, `nav_bar_orrient`, `modified`) VALUES
+(1, 'Termar\'s Hardware and Constraction', 'Termar\'s Hardware and Constraction', '1.0.0', 'logo.png', 'logo-white.png', 'logo.png', 'Online hardware can help them improve the concerns of the customers.', 'Engr. Allan Poserio', 'info@termarshardwareandconstruction.com', '+323332469', '0917-115-5270', 'Purok Citrus, Poblacion Ipil, Zamboanga Sibugay, PH 07001', 20, 'termarshardwareandconstruction', '/alphaphpn.com/staging/termarshardwareandconstruction/', '', '20220321', '2021-11-03 21:09:34', '#f79646', 'rgb(247, 150, 70, .1)', '#e57b13', '', '', '', '', '', '', '', '7.7829683,122.5886357', 'Divina Tadeo Ochovillo, Beverly Pestaño Apatan, Rovilyn Fernandez Maico, Crisjen Remegio Dequin', 'kjjsclosets.com', '&#8369;', 'fixed-top', '2022-03-30 13:54:43');
 
 -- --------------------------------------------------------
 
@@ -124,6 +125,7 @@ CREATE TABLE `tblsysuser` (
   `username` varchar(254) NOT NULL,
   `passcode` varchar(254) NOT NULL,
   `pin` varchar(6) NOT NULL,
+  `extname` text NOT NULL,
   `img_url` text NOT NULL,
   `fullname` text NOT NULL,
   `uemail` varchar(254) NOT NULL,
@@ -138,11 +140,12 @@ CREATE TABLE `tblsysuser` (
   `lname` text NOT NULL,
   `fname` text NOT NULL,
   `mname` text NOT NULL,
-  `address` text DEFAULT NULL,
+  `address` text NOT NULL,
   `deletedx` int(1) NOT NULL,
   `testimony` text NOT NULL,
   `cmpny` text NOT NULL,
   `cmpny_position` text NOT NULL,
+  `gogfirstime` int(1) NOT NULL,
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -151,11 +154,8 @@ CREATE TABLE `tblsysuser` (
 -- Dumping data for table `tblsysuser`
 --
 
-INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `img_url`, `fullname`, `uemail`, `umobileno`, `xposition`, `secquest`, `secans`, `ulevpos`, `uonline`, `ustatz`, `createdby`, `lname`, `fname`, `mname`, `address`, `deletedx`, `testimony`, `cmpny`, `cmpny_position`, `created`, `modified`) VALUES
-('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'Admin A. Minad', 'admin@info.com', '1', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Surname', 'Admin', 'Amind', NULL, 0, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.', 'Manuver', 'Administrator', '2021-12-06 00:12:35', '2022-01-22 22:04:07'),
-('00000000001', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '123456', '', 'User U. Resu', 'user@info.com', '2', 'User', 'What is your the name of your favorite dog?', 'me', 2, 0, 1, '00000000000', 'Resu', 'User', 'Uesr', NULL, 0, '', '', '', '2021-12-06 00:12:35', '2022-01-22 22:04:10'),
-('00000000002', 'guest', '084e0343a0486ff05530df6c705c8bb4', '123456', '', 'Guest G. Tseug', 'guest@info.com', '3', 'Guest', 'What is your the name of your favorite dog?', 'him', 3, 0, 0, '00000000000', 'Tseug', 'Guest', 'Geust', NULL, 0, '', '', '', '2021-12-06 00:12:35', '2022-01-22 22:04:14'),
-('111176140783446179165', 'kjjscloset', '8251cb8d6c876953df80d2945cc12bfa', '718230', 'https://lh3.googleusercontent.com/a/AATXAJwyS74TKXYflialYIyW1c_dTAzbOuiIU1juYYiN=s96-c', 'Baay Katherine', 'kjjscloset@gmail.com', '', 'Subscriber', '', '', 6, 0, 1, '', 'Katherine', 'Baay', '', NULL, 1, '', '', '', '2022-02-28 03:17:22', '2022-03-05 05:25:49');
+INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `extname`, `img_url`, `fullname`, `uemail`, `umobileno`, `xposition`, `secquest`, `secans`, `ulevpos`, `uonline`, `ustatz`, `createdby`, `lname`, `fname`, `mname`, `address`, `deletedx`, `testimony`, `cmpny`, `cmpny_position`, `gogfirstime`, `created`, `modified`) VALUES
+('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'https://lh3.googleusercontent.com/a/AATXAJySoJIRP_pIVIlqG7sRV53ZP97u1QcDOl1gIz_a=s96-c', 'Admin A. Minad', 'admin@info.com', '1', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Surname', 'Admin', 'Amind', '', 0, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.', 'Manuver', 'Administrator', 0, '2021-12-06 00:12:35', '2022-03-19 21:13:29');
 
 -- --------------------------------------------------------
 
@@ -571,6 +571,31 @@ CREATE TABLE `tbl_order_item` (
   `deleted` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_secquest`
+--
+
+CREATE TABLE `tbl_secquest` (
+  `qid` int(11) NOT NULL,
+  `secquest` varchar(254) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_secquest`
+--
+
+INSERT INTO `tbl_secquest` (`qid`, `secquest`) VALUES
+(1, 'In what city were you born?'),
+(2, 'What is the name of your favorite pet?'),
+(3, 'What is your mother\'s maiden name?'),
+(4, 'What high school did you attend?'),
+(5, 'What is the name of your first school?'),
+(6, 'What was the make of your first car?'),
+(7, 'What was your favorite food as a child?'),
+(8, 'Where did you meet your spouse?');
+
 --
 -- Indexes for dumped tables
 --
@@ -723,6 +748,12 @@ ALTER TABLE `tbl_order_item`
   ADD UNIQUE KEY `item_order_id` (`item_order_id`);
 
 --
+-- Indexes for table `tbl_secquest`
+--
+ALTER TABLE `tbl_secquest`
+  ADD PRIMARY KEY (`qid`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -833,6 +864,12 @@ ALTER TABLE `tbl_order_customer`
 --
 ALTER TABLE `tbl_order_item`
   MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_secquest`
+--
+ALTER TABLE `tbl_secquest`
+  MODIFY `qid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

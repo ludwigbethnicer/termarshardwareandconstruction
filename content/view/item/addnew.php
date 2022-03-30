@@ -175,7 +175,7 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text">Stock Available</span>
 					</div>
-					<input id="stock_available" type="number" class="form-control" placeholder="Fieldtxt" name="stock_available" value="0.00" step=".01">
+					<input id="stock_available" type="number" class="form-control" placeholder="Fieldtxt" name="stock_available" value="0" step="1" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
 				</div>
 
 				<div class="row justify-content-end">
@@ -207,7 +207,7 @@
 								echo "<script>alert('".$err_msg."');</script>";
 							} else {
 								// $qry_insert = "INSERT INTO {$stblname} SET barcode=:barcode, name=:nameitem, description=:description, category=:category, unit=:unit, sell_price=:sell_price, sale_price=:sale_price, supplier_price=:supplier_price, stock_available=:stock_available, deletedx=0";
-								$qry_insert = "INSERT INTO {$stblname} SET name=:nameitem, category=:category, unit=:unit, sell_price=:sell_price, stock_available=:stock_available, extnem=:extnem, deletedx=0";
+								$qry_insert = "INSERT INTO {$stblname} SET name=:nameitem, category=:category, unit=:unit, sell_price=:sell_price, stock_available=:stock_available, extnem=:extnem, size=:gsize, deletedx=0";
 								$stmt_insert = $cnn->prepare($qry_insert);
 
 								// $barcode = trim($_POST['barcode']);
@@ -215,6 +215,7 @@
 								// $description = trim($_POST['description']);
 								$category = trim($_POST['category']);
 								$unit = trim($_POST['unit']);
+								$size = trim($_POST['size']);
 								$sell_price = trim($_POST['sell_price']);
 								// $sale_price = trim($_POST['sale_price']);
 								// $supplier_price = trim($_POST['supplier_price']);
@@ -229,6 +230,7 @@
 								// $stmt_insert->bindParam(':description', $description);
 								$stmt_insert->bindParam(':category', $category);
 								$stmt_insert->bindParam(':unit', $unit);
+								$stmt_insert->bindParam(':gsize', $size);
 								$stmt_insert->bindParam(':sell_price', $sell_price);
 								// $stmt_insert->bindParam(':sale_price', $sale_price);
 								// $stmt_insert->bindParam(':supplier_price', $supplier_price);
@@ -248,7 +250,7 @@
 								$thelastid = $row_lastid['item_id'];
 								$imgitemnem = trim('ITEM'.$thelastid);
 
-								$target_dir = "../../../storage/img/items/".$imgitemnem.".".$ext;
+								$target_dir = "../../../content/theme/".$themename."/storage/img/item/".$imgitemnem.".".$ext;
 								$target_file = $target_dir . basename($_FILES["itemfilenem"]["name"]);
 								$uploadOk = 1;
 								$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));

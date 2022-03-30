@@ -34,6 +34,7 @@
 							ulevpos=6, 
 							xposition=:xposition, 
 							ustatz=1, 
+							gogfirstime=0, 
 							pin=:pin"
 						;
 					$stmt_insert = $cnn->prepare($qry_insert);
@@ -41,7 +42,7 @@
 					$xemail = $_POST['xemail'];
 					$xphone = $_POST['xphone'];
 					$passcode1 = md5($_POST['passcode1']);
-					$xposition = "Subscriber";
+					$xposition = "Customer";
 					$permitted_chars2 = '0123456789';
 					$pin = substr(str_shuffle($permitted_chars2), 0, 6);
 					$stmt_insert->bindParam(':idx', $fromidted);

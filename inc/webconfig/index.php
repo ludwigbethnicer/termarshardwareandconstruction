@@ -24,6 +24,7 @@
 		$themename = "content/theme/".$row_webconf['themename'];
 		$domainhome = $row_webconf['domainhome'];
 		$idletime = $row_webconf['idletime'] * 60;
+		$navbarorrient = $row_webconf['nav_bar_orrient'];
 
 		$appinfo = array(
 				"CompanyName"	=> $cmpnyname, 
@@ -40,7 +41,8 @@
 				"Address"		=> $maddress, 
 				"ThemeName"		=> $themename, 
 				"xHomeDomain"	=> $domainhome, 
-				"IdleTime"		=> $idletime
+				"IdleTime"		=> $idletime, 
+				"MenuPosition"	=> $navbarorrient
 			);
 
 		print(json_encode($appinfo));

@@ -66,9 +66,12 @@
 							$_SESSION["middlename"] = $middlename;
 							$_SESSION["postitle"] = $uposition;
 							$_SESSION["imglnkurl"] = $row['img_url'];
+							$_SESSION["imglnkext"] = $row['extname'];
 
 							$_SESSION["email"] = $email;
 							$_SESSION["phone"] = $phone;
+
+							$_SESSION["gogfirstime"] = $row['gogfirstime'];
 							
 							echo "<script>window.open('../../', '_self');</script>";
 							// header('location:../../');

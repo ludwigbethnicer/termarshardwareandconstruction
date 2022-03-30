@@ -40,16 +40,19 @@
 						$_SESSION["middlename"] = $row_uzr['mname'];
 						$_SESSION["postitle"] = $row_uzr['xposition'];
 						$_SESSION["imglnkurl"] = $row_uzr['img_url'];
+						$_SESSION["imglnkext"] = $row_uzr['extname'];
 
 						$_SESSION["email"] = $row_uzr['uemail'];
 						$_SESSION["phone"] = $row_uzr['umobileno'];
+
+						$_SESSION["gogfirstime"] = $row_uzr['gogfirstime'];
 						
 						$err_msg = "Already registered. ".$gogid;
 						echo "<script>window.open('../../', '_self');</script>";
 						header('location:../../');
 					}
 				} else {
-					$qry_insert = "INSERT INTO tblsysuser SET usercode=:idx, username=:younicknamex, passcode=:passcode1x, ulevpos=6, xposition=:xposition, ustatz=1, pin=:pin, uemail=:email9, fullname=:fullname, lname=:lname, fname=:fname, img_url=:imgurl";
+					$qry_insert = "INSERT INTO tblsysuser SET usercode=:idx, username=:younicknamex, passcode=:passcode1x, ulevpos=6, xposition=:xposition, ustatz=1, pin=:pin, uemail=:email9, fullname=:fullname, lname=:lname, fname=:fname, img_url=:imgurl, gogfirstime=1";
 					$stmt_insert = $cnn->prepare($qry_insert);
 					$gogid9 = $_POST['gogid'];
 					$younickname = $_POST['username2'];
@@ -61,7 +64,7 @@
 					$permitted_chars2 = '0123456789';
 					$pin = substr(str_shuffle($permitted_chars2), 0, 6);
 					$passcode1 = md5($pin);
-					$xposition = "Subscriber";
+					$xposition = "Customer";
 					$stmt_insert->bindParam(':idx', $gogid9);
 					$stmt_insert->bindParam(':younicknamex', $younickname);
 					$stmt_insert->bindParam(':email9', $email9);
@@ -87,6 +90,9 @@
 
 					$_SESSION["email"] = $email;
 					$_SESSION["imglnkurl"] = $imgurl;
+					$_SESSION["imglnkext"] = '';
+
+					$_SESSION["gogfirstime"] = 1;
 
 					$err_msg = "Successfully registered. ".$gogid9;
 					echo "<script>window.open('../../', '_self');</script>";

@@ -38,9 +38,15 @@
 					</a>
 					<div class="sidebar-submenu">
 						<ul>
-							<li>
-								<a href="<?php echo $baklnk; ?>routes/item">Item(s)</a>
-							</li>
+							<?php
+								if ($_SESSION["ulevpos"]==1) {
+									?>
+									<li>
+										<a href="<?php echo $baklnk; ?>routes/item">Item(s)</a>
+									</li>
+									<?php
+								}
+							?>
 							<li>
 								<a href="<?php echo $baklnk; ?>routes/item-order">Order(s)</a>
 							</li>
@@ -65,9 +71,15 @@
 					<div class="sidebar-submenu">
 						<ul>
 							<!-- System Default Report -->
-							<li>
-								<a href="#">User(s)</a>
-							</li>
+							<?php
+								if ($_SESSION["ulevpos"]==1) {
+									?>
+									<li>
+										<a href="#">User(s)</a>
+									</li>
+									<?php
+								}
+							?>
 							<li>
 								<a href="#" title="d-none">Sales</a>
 								<div class="sidebar-dropdown">

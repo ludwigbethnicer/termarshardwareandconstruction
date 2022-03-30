@@ -7,6 +7,12 @@
 		include_once "../../../inc/xsession.php";
 		$baklnk = "../../../";
 	}
+
+	if ($imgpext == '') {
+		$profpicsurr = $imgpixg;
+	} else {
+		$profpicsurr = $baklnk.$imgpixg;
+	}
 ?>
 
 <!-- style type="text/css">
@@ -61,7 +67,8 @@
 	<!-- Current User Profile -->
 	<div class="sidebar-header">
 		<div class="user-pic user-pic-circle">
-			<img class="img-responsive img-rounded" src="<?php echo $baklnk; ?>storage/img/avatar2.png" alt="User picture">
+			<img class="img-responsive img-rounded" src="<?php echo $profpicsurr; ?>" alt="User picture">
+			<?php // echo $baklnk.'storage/img/avatar2.png'; ?>
 		</div>
 		<div class="user-info">
 			<span class="user-name"><?php echo $givename; ?>
@@ -98,46 +105,58 @@
 					</a>
 					<div class="sidebar-submenu">
 						<ul>
+							<?php
+								if ($_SESSION["ulevpos"]==1) {
+									?>
+										<li>
+											<a href="<?php echo $baklnk; ?>routes/user">All User</a>
+										</li>
+										<li>
+											<a href="<?php echo $baklnk; ?>routes/user/addnew">Add New</a>
+										</li>
+									<?php
+								}
+							?>
 							<li>
-								<a href="<?php echo $baklnk; ?>routes/user">All User</a>
-							</li>
-							<li>
-								<a href="<?php echo $baklnk; ?>routes/user/addnew">Add New</a>
-							</li>
-							<li>
-								<a href="<?php echo $baklnk; ?>routes/user/#">Profile</a>
-							</li>
-						</ul>
-					</div>
-				</li>
-				<li class="sidebar-dropdown">
-					<a href="#">
-						<i class="fas fa-cogs"></i>
-						<span>Setting</span>
-					</a>
-					<div class="sidebar-submenu">
-						<ul>
-							<li>
-								<a href="<?php echo $baklnk; ?>routes/setgener" title="General Settings">General</a>
-							</li>
-							<li>
-								<a href="#" class="d-none">Writing</a>
-							</li>
-							<li>
-								<a href="#" class="d-none">Reading</a>
-							</li>
-							<li>
-								<a href="#" class="d-none">Discussion</a>
-							</li>
-							<li>
-								<a href="#" class="d-none">Privacy</a>
-							</li>
-							<li>
-								<a href="<?php echo $baklnk; ?>routes/address" title="Address List">Address</a>
+								<a href="<?php echo $baklnk; ?>routes/user/profile">Profile</a>
 							</li>
 						</ul>
 					</div>
 				</li>
+				<?php
+					if ($_SESSION["ulevpos"]==1) {
+						?>
+						<li class="sidebar-dropdown">
+							<a href="#">
+								<i class="fas fa-cogs"></i>
+								<span>Setting</span>
+							</a>
+							<div class="sidebar-submenu">
+								<ul>
+									<li>
+										<a href="<?php echo $baklnk; ?>routes/setgener" title="General Settings">General</a>
+									</li>
+									<li>
+										<a href="#" class="d-none">Writing</a>
+									</li>
+									<li>
+										<a href="#" class="d-none">Reading</a>
+									</li>
+									<li>
+										<a href="#" class="d-none">Discussion</a>
+									</li>
+									<li>
+										<a href="#" class="d-none">Privacy</a>
+									</li>
+									<li>
+										<a href="<?php echo $baklnk; ?>routes/address" title="Address List">Address</a>
+									</li>
+								</ul>
+							</div>
+						</li>
+						<?php
+					}
+				?>
 				<li class="sidebar-dropdown d-none">
 					<a href="#">
 						<i class="fas fa-palette"></i>

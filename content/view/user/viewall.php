@@ -46,6 +46,17 @@
 				foreach ($stmt as $row) {
 					$xno++;
 					extract($row);
+					if ($uonline==0) {
+						$youonoff = "Offline";
+					} else {
+						$youonoff = "Online";
+					}
+
+					if ($ustatz==0) {
+						$youstatx = "Disabled";
+					} else {
+						$youstatx = "Enabled";
+					}
 					echo '<tr>';
 						echo "<td>".$xno."</td>";
 						echo "<td>{$username}</td>";
@@ -54,8 +65,8 @@
 						echo "<td><a href='#' title='{$umobileno}' onclick='FnPhoneURLTarget(this);'>{$umobileno}</a></td>";
 						echo "<td>{$xposition}</td>";
 						echo "<td>{$ulevpos}</td>";
-						echo "<td>{$uonline}</td>";
-						echo "<td>{$ustatz}</td>";
+						echo "<td>{$youonoff}</td>";
+						echo "<td>{$youstatx}</td>";
 						echo "<td>{$createdby}</td>";
 						echo "<td>{$modified}</td>";
 						echo "<td>{$created}</td>";

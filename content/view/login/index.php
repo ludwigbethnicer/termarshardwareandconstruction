@@ -68,9 +68,7 @@
 						</div>
 					</div>
 
-					<?php
-						include_once "../../inc/login/index.php";
-					?>
+					<?php include_once "../../inc/login/index.php"; ?>
 
 					<div class="row">
 						<div class="col-sm-6 mb-2">
@@ -85,7 +83,7 @@
 
 					<div class="row">
 						<div class="col-sm-6 mb-2">
-							<a href="#" onclick="fnforgotpw()">Forgot password?</a>
+							<a href="#" onclick="fnforgotpw(document.getElementById('username').value)">Forgot password?</a>
 						</div>
 						<div class="col-sm-6 mb-2"></div>
 					</div>

@@ -25,14 +25,27 @@
 	$pimglnkurl = $row_profilez["img_url"];
 	$paddress = $row_profilez["address"];
 
+	$psecquest = $row_profilez["secquest"];
+	$psecans = $row_profilez["secans"];
+
 	$pmobilephone = $row_profilez["umobileno"];
 	$pemployer = $row_profilez["cmpny"];
 	$pjobposition = $row_profilez["cmpny_position"];
+
+	$extname = $row_profilez['extname'];
+
+	if ($pimglnkurl == "") {
+		$profpicsurrer = "../../storage/img/no-image.jpg";
+	} elseif ($extname == "") {
+		$profpicsurrer = $pimglnkurl;
+	} else {
+		$profpicsurrer = "../../".$pimglnkurl;
+	}
 ?>
 
 <script>
 	window.addEventListener('load', function() {
-		document.querySelector('#itemfilenem').addEventListener('change', function() {
+		document.querySelector('#profpic').addEventListener('change', function() {
 			if (this.files && this.files[0]) {
 				var img = document.querySelector('#imgogsrc3');
 				img.onload = () => {
@@ -40,7 +53,7 @@
 				}
 				img.src = URL.createObjectURL(this.files[0]); // set src to blob url
 
-				var img2 = document.querySelector('#itmvwimgfl2');
+				var img2 = document.querySelector('#profvwimgfl3');
 				img2.onload = () => {
 					URL.revokeObjectURL(img2.src);  // no longer needed, free memory
 				}
@@ -64,15 +77,14 @@
 					<div class="row">
 						<div class="col-md-3">
 							<div class="form-group">
-								<img id="imgogsrc3" class="img-thumbnail" src="<?php echo $pimglnkurl; ?>" data-toggle="modal" data-target="#ymModalItemPreview">
+								<img id="imgogsrc3" class="img-thumbnail" src="<?php echo $profpicsurrer; ?>" data-toggle="modal" data-target="#ymModalItemPreview">
 							</div>
 						</div>
 						<div class="col-md-9 mt-auto">
 							<div class="form-group">
-								<label for="profpic">Profile Picture: <?php echo $pimglnkurl; ?></label>
+								<label for="profpic">Profile Picture: <?php echo $profpicsurrer; ?></label>
 								<div class="input-group mb-3">
-									<input type="text" class="form-control d-none" id="profpic" placeholder="Profile Picture" name="profpic" readonly value="<?php echo $pimglnkurl; ?>">
-									<input type="file" id="itemfilenem" name="itemfilenem" class="form-control" placeholder="Upload File" accept="image/*">
+									<input type="file" id="profpic" name="profpic" class="form-control" placeholder="Upload File" accept="image/*">
 									<div class="valid-feedback">Valid.</div>
 									<div class="invalid-feedback">Please fill out this field.</div>
 								</div>
@@ -184,6 +196,47 @@
 							<div class="invalid-feedback">Please fill out this field.</div>
 						</div>
 					</div>
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="psecquest">Security Question</label>
+								<div class="input-group mb-3">
+									<input type="text" class="form-control" id="psecquest" placeholder="Security Question" name="psecquest" autofocus required value="<?php echo $psecquest; ?>" list="secquestList">
+									<div class="valid-feedback">Valid.</div>
+									<div class="invalid-feedback">Please fill out this field.</div>
+
+									<datalist id="secquestList">
+									<?php
+										$stmtsecquest = $cnn->prepare("SELECT * FROM tbl_secquest GROUP BY secquest ORDER BY secquest ASC");
+										$stmtsecquest->execute();
+										$resultsecquest = $stmtsecquest->setFetchMode(PDO::FETCH_ASSOC);
+										foreach ($stmtsecquest as $rowsecquest) {
+											echo "<option value='".$rowsecquest['secquest']."'>";
+										}
+									?>
+									</datalist>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-md-12">
+							<div class="form-group">
+								<label for="psecans">Security Answer</label>
+								<div class="input-group mb-3" id="show_hide_password">
+									<input type="password" class="form-control" id="passcode" placeholder="Security Answer" name="psecans" autofocus required value="<?php echo $psecans; ?>">
+									<div class="input-group-prepend">
+										<span class="input-group-text">
+											<i class="fa fa-eye-slash" aria-hidden="true" onclick="PwHideShow()"></i>
+										</span>
+									</div>
+									<div class="valid-feedback">Valid.</div>
+									<div class="invalid-feedback">Please fill out this field.</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
 					<div class="row">
 						<div class="col-md-12">
 							<?php include_once "update.php"; ?>
@@ -226,7 +279,7 @@
 		<div class="modal-content">
 			<button type="button" class="close text-right mr-1" data-dismiss="modal">&times;</button>
 			<div class="modal-body">
-				<img id="itmvwimgfl2" src="<?php echo $pimglnkurl; ?>">
+				<img id="profvwimgfl3" src="<?php echo $pimglnkurl; ?>">
 			</div>
 		</div>
 	</div>

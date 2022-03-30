@@ -1,0 +1,184 @@
+User Level
+
+	1	Administrator
+	2	User (Staff)
+	3	Guest
+	4	Contributor	(Supplier / Seller)
+	5	Author
+	6	Subscriber	(Customer / Member)
+	7	Cashier
+
+-------
+
+https://lh3.googleusercontent.com/a-/AOh14Giuv75Tw-DdTw036rQKVh1QAZBzeGrGywoucUzvtA=s96-c
+
+mlitaudit
+bx5@AN4@5hzLBQU
+
+db_mlitaudit
+
++639753001460
+
+https://serverjs.io/tutorials/chat/
+
+------
+
+Color
+	Frontend Page(s)
+		Background Color
+		Background Image
+		Top Nav Bar Menu
+		Footer
+
+--
+
+Contact Form
+	id
+	fullname
+	email
+	phone
+	subject
+	message
+
+----
+
+Forgot Password?
+
+	Select ways to recover account:
+
+		Security Question
+		Send Verification Code thru Mobile Phone
+		Send Verification Code thru E-mail
+
+--------
+
+console.log("ID: " + g_id); // Don't send this directly to your server!
+	console.log('Full Name: ' + g_fullname);
+	console.log('Given Name: ' + g_fname);
+	console.log('Family Name: ' + g_surname);
+	console.log("Image URL: " + g_img_url);
+	console.log("Email: " + g_email);
+	console.log("Username: " + g_username);
+	console.log("ID Token: " + id_token);
+
+-------
+
+https://www.w3schools.com/sql/func_mysql_round.asp
+
+---------
+
+URL to compose a message in Gmail (with full Gmail interface and specified to, bcc, subject, etc.)
+
+https://mail.google.com/mail/u/1/#inbox?compose=new
+
+https://mail.google.com/mail/?view=cm&fs=1&to=someone@example.com&su=SUBJECT&body=BODY&bcc=someone.else@example.com
+
+-------
+
+Admin Dashboard: Set Color
+	Background Color
+		Sidebar
+			$dsidebarbgcolor
+				<nav id="sidebar" class="sidebar-wrapper">
+				stye="background: <?php echo $dsidebarbgcolor; ?>"
+
+				.chiller-theme .sidebar-wrapper {
+					background: #324b7c;
+				}
+
+			$dsidebariconbgcolor
+			$dsidebariconfontcolor
+				<i class="fas fa-server"></i>
+				stye="background: <?php echo $dsidebariconbgcolor; ?>; color: <?php echo $dsidebariconfontcolor; ?>;"
+				.chiller-theme .sidebar-wrapper .sidebar-menu ul li a i {
+					background: #324b7c;
+				}
+
+----------
+
+alphaphpdb
+kjjsroot
+RC83Ag^6MINb
+
+09462478665
+Rubitatech@2009#
+
+09154826025
+Dollogz@2010#
+
+marnelieannariquenapigkit@gmail.com
+OA3xOriginalProductKey
+
+----------
+
+Checkout
+
+	Cannot add item
+	Can remove item
+	Can update quantity
+	Can Cancel order
+
+Reviewed
+
+	Cannot add item
+	Can remove item
+	Cannot update quantity
+	Can Cancel order
+
+Approved
+	
+	Cannot add item
+	Cannot remove item
+	Cannot update quantity
+	Can Cancel order
+
+Declined
+	
+	Cannot add item
+	Cannot remove item
+	Cannot update quantity
+	Order already canceled
+
+Shipped
+	
+	Cannot add item
+	Cannot remove item
+	Cannot update quantity
+	Order already canceled
+
+------
+
+GCash#: 0915-482-6025
+Name: Ludwig Bethnicer C. Napigkit
+
+https://www.xvideos.com/video64976793/my_horny_stepsister_in_my_parents_bed
+
+------
+
+1.) Ochovillo, Divina Tadeo
+	Phone#: 09363486404
+	E-mail
+	Thesis Position: Project Manager
+2.) Apatan, Beverly Pestaño
+	Phone#: 09518360429
+	E-mail: beverlyapatan2@gmail.com
+	Thesis Position: Programmer
+3.) Maico, Rovilyn Fernandez
+	Phone#: 09555778053
+	E-mail:maicorovilyn92@gmail.com	Thesis Position: Programmer
+4.) Dequin, Crisjen Remegio
+	Phone#: 09468366811
+	E-mail: 
+crisjendequin150@gmail.com	Thesis Position: Analyst
+
+Email: divinetadz@gmail.com
+
+------
+
+Kimmer Edombingo, Jeza Daguinutas, Rey-An Colot, Apilar Barcelisa
+
+----
+
+https://lh3.googleusercontent.com/a/AATXAJxkcGzhwPC9GfYBjzlkZHBeZ7uIPrLrc83Y83iq=s96-c
+
+Bethnicer@1985#

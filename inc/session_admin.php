@@ -7,9 +7,13 @@
 		$uname		= $_SESSION["username"];
 		$comname	= $_SESSION["fullname"];
 		$positionx	= $_SESSION["ulevpos"];
+		$imgpixg	= $_SESSION["imglnkurl"];
+		$imgpext	= $_SESSION["imglnkext"];
 
 		$lastname	= $_SESSION["surname"];
 		$givename	= $_SESSION["firstname"];
 		$mamaname	= $_SESSION["middlename"];
 		$ptitle		= $_SESSION["postitle"];
+
+		$gogfirstime	= $_SESSION["gogfirstime"];
 	}

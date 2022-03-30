@@ -39,6 +39,18 @@
 		$build_by = $row_webconf['build_by'];
 		$cwebzite = $row_webconf['cwebzite'];
 		$dcurrencyx = $row_webconf['dcurrencyx'];
+		$navbarorrient = $row_webconf['nav_bar_orrient'];
+
+		$primarycolor = $row_webconf['primary_color'];
+		$secondcolor = $row_webconf['second_color'];
+		$thirdcolor = $row_webconf['third_color'];
+		$forthcolor = $row_webconf['forth_color'];
+		$fifthcolor = $row_webconf['fifth_color'];
+		$sixthcolor = $row_webconf['sixth_color'];
+		$seventhcolor = $row_webconf['seventh_color'];
+		$eightcolor = $row_webconf['eight_color'];
+		$ninghtcolor = $row_webconf['ninght_color'];
+		$tenthcolor = $row_webconf['tenth_color'];
 	} catch(PDOException $e) {
 		$err = $e->getMessage();
 		$err2 = strrchr($e,"1049");

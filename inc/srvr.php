@@ -1,13 +1,13 @@
 <?php
 
-	$host		= "localhost"; // Server Host
-	$db			= "u282954699_termarshacdb"; // Database Name
-	$unameroot	= "root"; // Database Username [kjjsroot]
-	$pw			= ""; // Database Password [RC83Ag^6MINb]
-	$err		= ""; // Database Error Connection
+	$host		= 'localhost'; // Server Host
+	$db			= 'u282954699_termarshacdb'; // Database Name
+	$unameroot	= 'root'; // Database Username [kjjsroot]
+	$pw			= ''; // Database Password [RC83Ag^6MINb]
+	$err		= ''; // Database Error Connection
 	$cnn		= null;
-	$dir		= "/alphaphpn/termarshardwareandconstruction"; // Domain Directory
-	$lnkfont	= "//fonts.googleapis.com/css?family=Sofia"; // Google Font
+	$dir		= '/alphaphpn.com/staging/termarshardwareandconstruction/'; // Domain Directory
+	$lnkfont	= '//fonts.googleapis.com/css?family=Sofia'; // Google Font
 
 	// $company	= "Company"; // Company Name
 	// $title		= "Title"; // System Title
@@ -22,5 +22,5 @@
 	// $cwebzite	= "google.com";
 	// $dcurrencyx	= "$";
 
-	$gauthlogin	= "372914928938-0bc8mka01l2t4t0e847eksd9njbjmvie.apps.googleusercontent.com";
-	// Client Secret: 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
+	// $gauthlogin	= "915105451708-09slv78bomdcnij292kvgmfijv229f3i.apps.googleusercontent.com";
+	$gauthlogin	= '775302666686-j83mcm9edhjb2gd80a7k3ctehpuuqipv.apps.googleusercontent.com';
