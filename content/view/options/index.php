@@ -1,5 +1,5 @@
 <?php
-	include_once "../../content/template-part/dashboard-navbar.php";
+	include_once "../../content/template-part/".$themename."/dashboard-navbar.php";
 	include_once "../../inc/core.php";
 	include_once "../../inc/srvr.php";
 	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
@@ -30,11 +30,12 @@
 							<?php
 								$tblname = "tblthemename";
 								$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-								$qry_grpby = $cnn->prepare("SELECT themename FROM {$tblname} WHERE deletedx=0 ORDER BY themename ASC");
+								$qry_grpby = $cnn->prepare("SELECT * FROM {$tblname} WHERE deletedx=0 ORDER BY themename ASC");
 								$qry_grpby->execute();
 								$rslt_grpby = $qry_grpby->setFetchMode(PDO::FETCH_ASSOC);
 								foreach ($qry_grpby as $row_grpby) {
-									echo "<option value='".$row_grpby['themename']."'>";
+									$thiemtiet = $row_grpby['theme_title'];
+									echo "<option label='".$thiemtiet."' value='".$row_grpby['themename']."'>";
 								}
 							?>
 						</datalist>

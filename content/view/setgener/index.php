@@ -1,5 +1,5 @@
 <?php
-	include_once "../../content/template-part/dashboard-navbar.php";
+	include_once "../../content/template-part/".$themename."/dashboard-navbar.php";
 	include_once "../../inc/core.php";
 	include_once "../../inc/srvr.php";
 	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
@@ -24,6 +24,18 @@
 	$vidletime = $row_curr['idletime'];
 	$vgeo_map = $row_curr['geo_map'];
 	$vnavbarorrient = $row_curr['nav_bar_orrient'];
+	$vcontentwidth = $row_curr['content_width'];
+
+	$vprimarycolor = $row_curr['primary_color'];
+	$vsecondcolor = $row_curr['second_color'];
+	$vthirdcolor = $row_curr['third_color'];
+	$vforthcolor = $row_curr['forth_color'];
+	$vfifthcolor = $row_curr['fifth_color'];
+	$vsixthcolor = $row_curr['sixth_color'];
+	$vseventhcolor = $row_curr['seventh_color'];
+	$veightcolor = $row_curr['eight_color'];
+	$vninghtcolor = $row_curr['ninght_color'];
+	$vtenthcolor = $row_curr['tenth_color'];
 ?>
 
 <main class="page-content">
@@ -157,6 +169,137 @@
 				</div>
 
 				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Address</span>
+						</div>
+						<textarea class="form-control" id="idxmaddress" name="idxmaddress" placeholder="Address" required><?php echo $vmaddress; ?></textarea>
+						<div class="valid-feedback">Valid.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Button Size</span>
+						</div>
+						<select id="idxbtnsize" name="idxbtnsize" class="form-control" required>
+							<option value="btn-lg" <?php if($buttonsize=='btn-lg') echo 'selected="selected"'; ?>>Large</option>
+							<option value="" <?php if($buttonsize=='') echo 'selected="selected"'; ?>>Default</option>
+							<option value="btn-sm" <?php if($buttonsize=='btn-sm') echo 'selected="selected"'; ?>>Small</option>
+						</select>
+						<div class="valid-feedback">Valid.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+					</div>
+				</div>
+
+				<!-- Color Picker Start -->
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 1</span>
+						</div>
+						<input id="idxcolor_1" type="text" class="form-control" placeholder="Primary Color" name="idxcolor_1" value="<?php echo $vprimarycolor; ?>" style="<?php echo 'background-color: '.$vprimarycolor.';'; ?>">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 2</span>
+						</div>
+						<input id="idxcolor_2" type="text" class="form-control" placeholder="Secondary Color" name="idxcolor_2" value="<?php echo $vsecondcolor; ?>" style="<?php echo 'background-color: '.$vsecondcolor.';'; ?>">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 3</span>
+						</div>
+						<input id="idxcolor_3" type="text" class="form-control" placeholder="Tertiaty Color" name="idxcolor_3" value="<?php echo $vthirdcolor; ?>" style="<?php echo 'background-color: '.$vthirdcolor.';'; ?>">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 4</span>
+						</div>
+						<input id="idxcolor_4" type="text" class="form-control" placeholder="Forth Color" name="idxcolor_4" value="<?php echo $vforthcolor; ?>" style="<?php echo 'background-color: '.$vforthcolor.';'; ?>">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 5</span>
+						</div>
+						<input id="idxcolor_5" type="text" class="form-control" placeholder="Fifth Color" name="idxcolor_5" value="<?php echo $vfifthcolor; ?>" style="<?php echo 'background-color: '.$vfifthcolor.';'; ?>">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 6</span>
+						</div>
+						<input id="idxcolor_6" type="text" class="form-control" placeholder="Sixth Color" name="idxcolor_6" value="<?php echo $vsixthcolor; ?>" style="<?php echo 'background-color: '.$vsixthcolor.';'; ?>">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 7</span>
+						</div>
+						<input id="idxcolor_7" type="text" class="form-control" placeholder="Seventh Color" name="idxcolor_7" value="<?php echo $vseventhcolor; ?>" style="<?php echo 'background-color: '.$vseventhcolor.';'; ?>">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 8</span>
+						</div>
+						<input id="idxcolor_8" type="text" class="form-control" placeholder="Eight Color" name="idxcolor_8" value="<?php echo $veightcolor; ?>" style="<?php echo 'background-color: '.$veightcolor.';'; ?>">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 9</span>
+						</div>
+						<input id="idxcolor_9" type="text" class="form-control" placeholder="Nine Color" name="idxcolor_9" value="<?php echo $vninghtcolor; ?>" style="<?php echo 'background-color: '.$vninghtcolor.';'; ?>">
+					</div>
+				</div>
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Color 10</span>
+						</div>
+						<input id="idxcolor_10" type="text" class="form-control" placeholder="Tenth Color" name="idxcolor_10" value="<?php echo $vtenthcolor; ?>" style="<?php echo 'background-color: '.$vtenthcolor.';'; ?>">
+					</div>
+				</div>
+
+				<!-- Color Picker End -->
+
+				<div class="col-lg-6">
+					<div class="input-group mb-3 input-group-sm">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Content Width</span>
+						</div>
+						<select id="idxcontentwidth" name="idxcontentwidth" class="form-control" required>
+							<option value="container" <?php if($vcontentwidth=='container') echo 'selected="selected"'; ?>>Wide</option>
+							<option value="container-fluid" <?php if($vcontentwidth=='container-fluid') echo 'selected="selected"'; ?>>Full Width</option>
+						</select>
+					</div>
+				</div>
+
+				<div class="col-lg-6">
 					<div class="card">
 						<div class="bg-secondary" style="height: 100px;">
 							<img class="card-img-top" src="<?php echo '../../content/theme/'.$themename.'/storage/img/'.$vsys_logo; ?>" alt="System Logo" style="height: inherit; object-fit: contain;">
@@ -203,17 +346,6 @@
 						<div class="invalid-feedback">Please fill out this field.</div>
 					</div>
 				</div>
-
-				<div class="col-lg-6">
-					<div class="input-group mb-3 input-group-sm">
-						<div class="input-group-prepend">
-							<span class="input-group-text">Address</span>
-						</div>
-						<textarea class="form-control" id="idxmaddress" name="idxmaddress" placeholder="Address" required><?php echo $vmaddress; ?></textarea>
-						<div class="valid-feedback">Valid.</div>
-						<div class="invalid-feedback">Please fill out this field.</div>
-					</div>
-				</div>
 			</div>
 			<div class="row justify-content-end">
 				<input type="submit" name="btnUpdate" value="Update" class="btn btn-warning btn-sm m-2">
@@ -251,6 +383,18 @@
 				$setstr_idletime = "idletime";
 				$setstr_geo_map = "geo_map";
 				$setstr_nav_bar_orrient = "nav_bar_orrient";
+				$setstr_button_size = "button_size";
+				$setstr_content_width = "content_width";
+				$setstr_primarycolor = 'primary_color';
+				$setstr_secondcolor = 'second_color';
+				$setstr_thirdcolor = 'third_color';
+				$setstr_forthcolor = 'forth_color';
+				$setstr_fifthcolor = 'fifth_color';
+				$setstr_sixthcolor = 'sixth_color';
+				$setstr_seventhcolor = 'seventh_color';
+				$setstr_eightcolor = 'eight_color';
+				$setstr_ninghtcolor = 'ninght_color';
+				$setstr_tenthcolor = 'tenth_color';
 
 				$qry_insert = "UPDATE {$stblname} SET 
 					{$setstr_cmpny_name}=:cmpny_name, 
@@ -267,7 +411,19 @@
 					{$setstr_maddress}=:maddress, 
 					{$setstr_idletime}=:idletime, 
 					{$setstr_geo_map}=:geo_map, 
-					{$setstr_nav_bar_orrient}=:navbarorrient
+					{$setstr_nav_bar_orrient}=:navbarorrient, 
+					{$setstr_button_size}=:buttonsize, 
+					{$setstr_content_width}=:contentwidth, 
+					{$setstr_primarycolor}=:primarycolor, 
+					{$setstr_secondcolor}=:secondcolor, 
+					{$setstr_thirdcolor}=:thirdcolor, 
+					{$setstr_forthcolor}=:forthcolor, 
+					{$setstr_fifthcolor}=:fifthcolor, 
+					{$setstr_sixthcolor}=:sixthcolor, 
+					{$setstr_seventhcolor}=:seventhcolor, 
+					{$setstr_eightcolor}=:eightcolor, 
+					{$setstr_ninghtcolor}=:ninghtcolor, 
+					{$setstr_tenthcolor}=:tenthcolor
 				";
 				$stmt_insert = $cnn->prepare($qry_insert);
 				$itxtcmpny_name = $_POST['idxcmpny_name'];
@@ -285,6 +441,18 @@
 				$itxtidletime = $_POST['idxidletime'];
 				$itxtgeo_map = $_POST['idxgeo_map'];
 				$itxtnavbarorrient = $_POST['idxnavbarorrient'];
+				$itxtbtnsize = $_POST['idxbtnsize'];
+				$itxtcontentwidth = $_POST['idxcontentwidth'];
+				$idxcolor1 = $_POST['idxcolor_1'];
+				$idxcolor2 = $_POST['idxcolor_2'];
+				$idxcolor3 = $_POST['idxcolor_3'];
+				$idxcolor4 = $_POST['idxcolor_4'];
+				$idxcolor5 = $_POST['idxcolor_5'];
+				$idxcolor6 = $_POST['idxcolor_6'];
+				$idxcolor7 = $_POST['idxcolor_7'];
+				$idxcolor8 = $_POST['idxcolor_8'];
+				$idxcolor9 = $_POST['idxcolor_9'];
+				$idxcolor10 = $_POST['idxcolor_10'];
 				$stmt_insert->bindParam(':cmpny_name', $itxtcmpny_name);
 				$stmt_insert->bindParam(':sys_name', $itxtsys_name);
 				$stmt_insert->bindParam(':sys_ver', $itxtsys_ver);
@@ -300,8 +468,19 @@
 				$stmt_insert->bindParam(':idletime', $itxtidletime);
 				$stmt_insert->bindParam(':geo_map', $itxtgeo_map);
 				$stmt_insert->bindParam(':navbarorrient', $itxtnavbarorrient);
+				$stmt_insert->bindParam(':buttonsize', $itxtbtnsize);
+				$stmt_insert->bindParam(':contentwidth', $itxtcontentwidth);
+				$stmt_insert->bindParam(':primarycolor', $idxcolor1);
+				$stmt_insert->bindParam(':secondcolor', $idxcolor2);
+				$stmt_insert->bindParam(':thirdcolor', $idxcolor3);
+				$stmt_insert->bindParam(':forthcolor', $idxcolor4);
+				$stmt_insert->bindParam(':fifthcolor', $idxcolor5);
+				$stmt_insert->bindParam(':sixthcolor', $idxcolor6);
+				$stmt_insert->bindParam(':seventhcolor', $idxcolor7);
+				$stmt_insert->bindParam(':eightcolor', $idxcolor8);
+				$stmt_insert->bindParam(':ninghtcolor', $idxcolor9);
+				$stmt_insert->bindParam(':tenthcolor', $idxcolor10);
 				$stmt_insert->execute();
-
 				$err_msg = "Update successfully.";
 				echo "<script>alert('".$err_msg."');window.location='../../routes/setgener';</script>";
 			}

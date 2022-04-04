@@ -14,6 +14,10 @@ body {
 	height: 100vh;
 }
 
+.mxw-half {
+	max-width: 50%;
+}
+
 #navbar {
 	padding: .8rem 1rem;
 	transition: 0.4s;
@@ -29,6 +33,10 @@ body {
 #navbar #mlogo {
 	max-height: 58px;
 	transition: 0.4s;
+}
+
+#navbar a {
+	text-shadow: 0 0 6px #000, 0 0 2px #000;
 }
 
 #mlogo {
@@ -187,9 +195,51 @@ footer.footer p {
 	max-width: 56px;
 }
 
+.map-footer {
+	border: 0;
+	margin-bottom: -6px;
+}
+
+.slideanim {visibility:hidden;}
+.slide {
+	animation-name: slide;
+	-webkit-animation-name: slide;
+	animation-duration: 1s;
+	-webkit-animation-duration: 1s;
+	visibility: visible;
+}
+@keyframes slide {
+	0% {
+		opacity: 0;
+		transform: translateY(70%);
+	} 
+	100% {
+		opacity: 1;
+		transform: translateY(0%);
+	}
+}
+@-webkit-keyframes slide {
+	0% {
+		opacity: 0;
+		-webkit-transform: translateY(70%);
+	} 
+	100% {
+		opacity: 1;
+		-webkit-transform: translateY(0%);
+	}
+}
+
+.slick-initialized button:focus {
+	outline: unset;
+}
+
 /** Default Style - End **/
 
 @media only screen and (max-width: 575px) {
+	.mxw-half {
+		max-width: unset;
+	}
+
 	#ymModalItemPreviewFront .modal-dialog {
 		max-width: unset;
 	}

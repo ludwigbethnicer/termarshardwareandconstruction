@@ -1,6 +1,6 @@
 <?php
 	include_once "../../content/theme/".$themename."/frontend-navbar.php";
-	include_once "../../content/theme/".$themename."/carousel-header.php";
+	include_once "../../content/theme/".$themename."/slick-home-banner.php";
 
 	$cnn_purchase = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 	$qry_purchase = "SELECT 

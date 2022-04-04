@@ -1,8 +1,9 @@
 <?php
 
 	try {
-		$itmordid = isset($_GET['itmordid']) ? $_GET['itmordid'] : die('ERROR: Record ID not found.');
+		$itmordid = isset($_GET['itmordid']) ? $_GET['itmordid'] : header('../../../routes/mcart/');
 		$zqty = isset($_GET['zqty']) ? $_GET['zqty'] : 1;
+		$itemid = isset($_GET['itemid']) ? $_GET['itemid'] : header('../../../routes/mcart/');
 
 		if ($zqty==0) {
 			$zqty = 1;
@@ -24,20 +25,39 @@
 				$cstock = $row['cstock'];
 			}
 
-			$totalamt = $zqty * $sellprice;
+			$qryrealqty = "SELECT * FROM tblitem WHERE item_id=:itemid AND deletedx=0 LIMIT 1";
+			$stmtrealqty = $cnn->prepare($qryrealqty);
+			$stmtrealqty->bindParam(':itemid', $itemid);
+			$stmtrealqty->execute();
+			$cntrealqty = $stmtrealqty->rowCount();
 
-			$qry_update = "UPDATE tbl_order_item SET 
-				qty			= '$zqty', 
-				total_amt	= '$totalamt'
-				WHERE 
-				item_order_id	= '$itmordid'
-				";
-			$cnn->exec($qry_update);
+			if ($cntrealqty > 0) {
+				foreach ($stmtrealqty as $rowrealqty) {
+					$realqty = $rowrealqty['stock_available'];
+
+					if ($zqty > $realqty) {
+						$totalamt = $realqty * $sellprice;
+						$actualyqty = $realqty;
+					} else {
+						$totalamt = $zqty * $sellprice;
+						$actualyqty = $zqty;
+					}
+				}
+
+				$qry_update = "UPDATE tbl_order_item SET 
+					qty			= '$actualyqty', 
+					total_amt	= '$totalamt'
+					WHERE 
+					item_order_id	= '$itmordid'
+					";
+				$cnn->exec($qry_update);
+				echo '<script>window.open("../../../routes/mcart/","_self");</script>';
+			} else {
+				echo '<script>window.open("../../../routes/mcart/","_self");</script>';
+			}
 		} else {
-
+			echo '<script>window.open("../../../routes/mcart/","_self");</script>';
 		}
-
-		echo '<script>window.open("../../../routes/mcart/","_self");</script>';
 	} catch (PDOException $exception) {
 		die('ERROR: ' . $exception->getMessage());
 	}

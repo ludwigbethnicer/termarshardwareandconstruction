@@ -171,7 +171,7 @@
 								<a href="#">Color</a>
 							</li>
 							<li>
-								<a href="#">Banner</a>
+								<a href="<?php echo $baklnk; ?>routes/banner">Banner</a>
 							</li>
 							<li>
 								<a href="#">Custom Style Sheet (CSS)</a>
@@ -237,7 +237,7 @@
 							<li>
 								<a href="<?php echo $baklnk; ?>routes/contact-messages">Message(s)</a>
 							</li>
-							<li>
+							<li class="d-none">
 								<a href="#">Contact List</a>
 							</li>
 						</ul>
@@ -302,10 +302,10 @@
 				<!-- Trash / Recycle Bin -->
 
 				<!-- About -->
-				<li class="header-menu">
+				<li class="header-menu d-none">
 					<span>About</span>
 				</li>
-				<li>
+				<li class="d-none">
 					<a href="<?php echo $baklnk; ?>routes/dashboard-theme" title="Dashboard Theme">
 						<i class="fa fa-copyright"></i>
 						<span>Dashboard</span>
@@ -320,11 +320,11 @@
 
 	<!-- Notification  -->
 	<div class="sidebar-footer">
-		<a href="#" title="Notification">
+		<a href="#" title="Notification" class="d-none">
 			<i class="fa fa-bell"></i>
 			<span class="badge badge-pill badge-warning notification">3</span>
 		</a>
-		<a href="#" title="Message">
+		<a href="#" title="Message" class="d-none">
 			<i class="fa fa-envelope"></i>
 			<span class="badge badge-pill badge-success notification">7</span>
 		</a>

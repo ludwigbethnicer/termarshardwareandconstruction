@@ -24,10 +24,12 @@
 	<div class="pt-5 pb-5" style="<?php echo 'background-color: '.$secondcolor.';'; ?>">
 	<?php
 	include_once "content/theme/".$themename."/template-part/contactus.php";
+
 	if ( empty($geomap) ) {
 		echo "<p align='center'>Can't Load Map.</p>";
 	} else {
-		echo '<iframe class="responsive-iframe" src="https://maps.google.com/maps?q='.$geomap.'&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="450" frameborder="0" style="border:0;margin-bottom:-6px;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>';
+		echo '<iframe class="responsive-iframe map-footer" src="https://maps.google.com/maps?q='.$geomap.'&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="450" frameborder="0" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>';
 	}
-	// include_once "addon/chatbox/index.php";
+	
+	// include_once('addon/chatbox/index.php');
 ?>

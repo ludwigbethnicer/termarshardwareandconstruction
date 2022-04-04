@@ -6,7 +6,7 @@
 		header('location:../../');
 	}
 
-	include_once "../../content/template-part/partner-navbar.php";
+	include_once "../../content/template-part/".$themename."/partner-navbar.php";
 	include_once "../../inc/cnndb.php";
 	include_once "../../inc/random-code/index.php";
 	

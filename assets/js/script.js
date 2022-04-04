@@ -1,16 +1,6 @@
 // When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
 window.onscroll = function() {scrollFunction()};
 
-function scrollFunction() {
-	if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
-		document.getElementById("navbar").style.padding = ".5rem 1rem";
-		document.getElementById("mlogo").style.maxHeight = "48px";
-	} else {
-		document.getElementById("navbar").style.padding = ".8rem 1rem";
-		document.getElementById("mlogo").style.maxHeight = "58px";
-	}
-}
-
 /** No remove 1st 3 char **/
 $(document).ready(function() {
 	$(".notrem3char").on("keyup", function() {
@@ -36,6 +26,69 @@ $(document).ready(function() {
 		if (v < this.min) this.value = this.min;
 		if (v > this.max) this.value = this.max;
 	});
+
+	// color picker start
+	$('#idxcolor_1').colorpicker();
+	$('#idxcolor_1').focusout(function() {
+		vclr_1 = $('#idxcolor_1').val();
+		$('#idxcolor_1').css('background-color',vclr_1);
+	});
+
+	$('#idxcolor_2').colorpicker();
+	$('#idxcolor_2').focusout(function() {
+		vclr_2 = $('#idxcolor_2').val();
+		$('#idxcolor_2').css('background-color',vclr_2);
+	});
+
+	$('#idxcolor_3').colorpicker();
+	$('#idxcolor_3').focusout(function() {
+		vclr_3 = $('#idxcolor_3').val();
+		$('#idxcolor_3').css('background-color',vclr_3);
+	});
+
+	$('#idxcolor_4').colorpicker();
+	$('#idxcolor_4').focusout(function() {
+		vclr_4 = $('#idxcolor_4').val();
+		$('#idxcolor_4').css('background-color',vclr_4);
+	});
+
+	$('#idxcolor_5').colorpicker();
+	$('#idxcolor_5').focusout(function() {
+		vclr_5 = $('#idxcolor_5').val();
+		$('#idxcolor_5').css('background-color',vclr_5);
+	});
+
+	$('#idxcolor_6').colorpicker();
+	$('#idxcolor_6').focusout(function() {
+		vclr_6 = $('#idxcolor_6').val();
+		$('#idxcolor_6').css('background-color',vclr_6);
+	});
+
+	$('#idxcolor_7').colorpicker();
+	$('#idxcolor_7').focusout(function() {
+		vclr_7 = $('#idxcolor_7').val();
+		$('#idxcolor_7').css('background-color',vclr_7);
+	});
+
+	$('#idxcolor_8').colorpicker();
+	$('#idxcolor_8').focusout(function() {
+		vclr_8 = $('#idxcolor_8').val();
+		$('#idxcolor_8').css('background-color',vclr_8);
+	});
+
+	$('#idxcolor_9').colorpicker();
+	$('#idxcolor_9').focusout(function() {
+		vclr_9 = $('#idxcolor_9').val();
+		$('#idxcolor_9').css('background-color',vclr_9);
+	});
+
+	$('#idxcolor_10').colorpicker();
+	$('#idxcolor_10').focusout(function() {
+		vclr_10 = $('#idxcolor_10').val();
+		$('#idxcolor_10').css('background-color',vclr_10);
+	});
+
+	// color picker end
 });
 
 /** Disable form submissions if there are invalid fields **/

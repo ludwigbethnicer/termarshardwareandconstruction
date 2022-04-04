@@ -1,7 +1,7 @@
 <?php
 	// Top Container
 	// Sidebar - Menu
-	include_once "../../content/template-part/dashboard-navbar.php";
+	include_once "../../content/template-part/".$themename."/dashboard-navbar.php";
 ?>
 
 <main class="page-content">

@@ -14,6 +14,7 @@
 
 	try {
 		$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+		
 		$qry_webconf = "SELECT * FROM conf LIMIT 1";
 		$stmt_webconf = $cnn->prepare($qry_webconf);
 		$stmt_webconf->execute();
@@ -28,6 +29,7 @@
 		$quotetitle = $row_webconf['quote_title'];
 		$ceopres = $row_webconf['ceo_pres'];
 		$memail = $row_webconf['memail'];
+		$facebook = $row_webconf['facebook'];
 		$telno = $row_webconf['telno'];
 		$mobileno = $row_webconf['mobileno'];
 		$maddress = $row_webconf['maddress'];
@@ -40,7 +42,6 @@
 		$cwebzite = $row_webconf['cwebzite'];
 		$dcurrencyx = $row_webconf['dcurrencyx'];
 		$navbarorrient = $row_webconf['nav_bar_orrient'];
-
 		$primarycolor = $row_webconf['primary_color'];
 		$secondcolor = $row_webconf['second_color'];
 		$thirdcolor = $row_webconf['third_color'];
@@ -51,6 +52,16 @@
 		$eightcolor = $row_webconf['eight_color'];
 		$ninghtcolor = $row_webconf['ninght_color'];
 		$tenthcolor = $row_webconf['tenth_color'];
+		$menugradientcolor = $row_webconf['menu_gradient_color'];
+		$buttonsize = $row_webconf['button_size'];
+		$contentwidth = $row_webconf['content_width'];
+
+		$qry_cscript = "SELECT * FROM tbl_custom_script LIMIT 1";
+		$stmt_cscript = $cnn->prepare($qry_cscript);
+		$stmt_cscript->execute();
+		$row_cscript = $stmt_cscript->fetch(PDO::FETCH_ASSOC);
+		$customstyle = $row_cscript['cstyle'];
+		$customscript = $row_cscript['cscript'];
 	} catch(PDOException $e) {
 		$err = $e->getMessage();
 		$err2 = strrchr($e,"1049");

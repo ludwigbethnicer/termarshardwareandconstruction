@@ -1,5 +1,5 @@
 <?php
-	include_once "../../content/template-part/partner-navbar.php";
+	include_once "../../content/template-part/".$themename."/partner-navbar.php";
 	if(empty($_SESSION["usercode"])) {
 		$usercodenow = null;
 		session_start();

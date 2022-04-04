@@ -1,4 +1,4 @@
-	<div class="container">
+	<div class="<?php echo $contentwidth; ?>">
 		<?php
 			if (empty($_SESSION["usercode"])) {
 
@@ -8,7 +8,7 @@
 		?>
 		<h2 class="text-center">Testimonial</h2>
 		<br>
-		<div id="myTestimonial" class="carousel slide mt-5 mb-5" data-ride="carousel" data-interval="5000" data-pause="hover">
+		<div id="myTestimonial" class="carousel slide mt-5 mb-5 mxw-half mx-auto" data-ride="carousel" data-interval="5000" data-pause="hover">
 			<!-- Wrapper for slides -->
 			<div class="carousel-inner text-center" role="listbox">
 				<?php
@@ -29,7 +29,7 @@
 				?>
 						<div class="carousel-item<?php echo $ifactive; ?>" data-value="<?php echo $xno_tesimony; ?>">
 							<h5 class="testsay">"<?php echo substr($row_tesimony['testimony'],0,200); ?>"</h5>
-							<h4><span><?php echo $row_tesimony['lname'].' '.$row_tesimony['fname']; ?>, <?php echo $row_tesimony['cmpny_position']; ?>, <?php echo $row_tesimony['cmpny']; ?></span></h4>
+							<h6><span><?php echo $row_tesimony['lname'].' '.$row_tesimony['fname']; ?>, <?php echo $row_tesimony['cmpny_position']; ?>, <?php echo $row_tesimony['cmpny']; ?></span></h6>
 						</div>
 				<?php
 					}

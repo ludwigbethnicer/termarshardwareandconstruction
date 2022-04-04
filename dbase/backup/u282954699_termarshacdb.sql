@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 30, 2022 at 04:05 PM
+-- Generation Time: Apr 04, 2022 at 09:43 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -38,6 +38,7 @@ CREATE TABLE `conf` (
   `quote_title` varchar(254) NOT NULL,
   `ceo_pres` varchar(254) NOT NULL,
   `memail` varchar(254) NOT NULL,
+  `facebook` text NOT NULL,
   `telno` varchar(254) NOT NULL,
   `mobileno` varchar(254) NOT NULL,
   `maddress` text NOT NULL,
@@ -57,20 +58,23 @@ CREATE TABLE `conf` (
   `eight_color` varchar(254) NOT NULL,
   `ninght_color` varchar(254) NOT NULL,
   `tenth_color` varchar(254) NOT NULL,
+  `menu_gradient_color` varchar(254) NOT NULL,
   `geo_map` text NOT NULL,
   `build_by` varchar(254) NOT NULL,
   `cwebzite` varchar(254) NOT NULL,
   `dcurrencyx` varchar(15) NOT NULL,
   `nav_bar_orrient` text NOT NULL,
-  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `button_size` text NOT NULL,
+  `content_width` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `conf`
 --
 
-INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `geo_map`, `build_by`, `cwebzite`, `dcurrencyx`, `nav_bar_orrient`, `modified`) VALUES
-(1, 'Termar\'s Hardware and Constraction', 'Termar\'s Hardware and Constraction', '1.0.0', 'logo.png', 'logo-white.png', 'logo.png', 'Online hardware can help them improve the concerns of the customers.', 'Engr. Allan Poserio', 'info@termarshardwareandconstruction.com', '+323332469', '0917-115-5270', 'Purok Citrus, Poblacion Ipil, Zamboanga Sibugay, PH 07001', 20, 'termarshardwareandconstruction', '/alphaphpn.com/staging/termarshardwareandconstruction/', '', '20220321', '2021-11-03 21:09:34', '#f79646', 'rgb(247, 150, 70, .1)', '#e57b13', '', '', '', '', '', '', '', '7.7829683,122.5886357', 'Divina Tadeo Ochovillo, Beverly Pestaño Apatan, Rovilyn Fernandez Maico, Crisjen Remegio Dequin', 'kjjsclosets.com', '&#8369;', 'fixed-top', '2022-03-30 13:54:43');
+INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `facebook`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `menu_gradient_color`, `geo_map`, `build_by`, `cwebzite`, `dcurrencyx`, `nav_bar_orrient`, `modified`, `button_size`, `content_width`) VALUES
+(1, 'Termar\'s Hardware and Constraction', 'Termar\'s Hardware and Constraction', '1.0.0', 'logo.png', 'logo-white.png', 'logo.png', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam', 'Engr. Allan Poserio', 'info@termarshardwareandconstruction.com', 'facebook.com/termarshardware', '(062) 957-2826', '0917-115-5270', 'Purok Citrus, Poblacion Ipil, Zamboanga Sibugay, PH 07001', 20, 'termarshardwareandconstruction', '/alphaphpn.com/staging/termarshardwareandconstruction/', '', '20220403', '2021-11-03 21:09:34', '#f79646', 'rgba(247,150,70,0.1)', '#f77911', '#f79646', 'rgba(241,179,0,0.1)', 'rgba(241,179,0,0.1)', 'rgba(241,179,0,0.1)', 'rgba(241,179,0,0.1)', 'rgba(241,179,0,0.1)', 'rgba(241,179,0,0.1)', 'linear-gradient(rgb(238, 103, 45), rgb(248, 174, 51), rgb(238, 103, 45))', '7.7829683,122.5886357', 'Divina Tadeo Ochovillo, Beverly Pestaño Apatan, Rovilyn Fernandez Maico, Crisjen ', 'termarshardwareandconstruction.com', '&#8369;', 'sticky-top', '2022-04-04 07:42:44', 'btn-lg', 'container');
 
 -- --------------------------------------------------------
 
@@ -155,7 +159,9 @@ CREATE TABLE `tblsysuser` (
 --
 
 INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `extname`, `img_url`, `fullname`, `uemail`, `umobileno`, `xposition`, `secquest`, `secans`, `ulevpos`, `uonline`, `ustatz`, `createdby`, `lname`, `fname`, `mname`, `address`, `deletedx`, `testimony`, `cmpny`, `cmpny_position`, `gogfirstime`, `created`, `modified`) VALUES
-('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'https://lh3.googleusercontent.com/a/AATXAJySoJIRP_pIVIlqG7sRV53ZP97u1QcDOl1gIz_a=s96-c', 'Admin A. Minad', 'admin@info.com', '1', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Surname', 'Admin', 'Amind', '', 0, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.', 'Manuver', 'Administrator', 0, '2021-12-06 00:12:35', '2022-03-19 21:13:29');
+('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'https://lh3.googleusercontent.com/a/AATXAJySoJIRP_pIVIlqG7sRV53ZP97u1QcDOl1gIz_a=s96-c', 'Admin A. Minad', 'admin@info.com', '1', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Admin', 'Admin', 'Admin', '', 0, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.', 'The Company', 'CEO', 0, '2021-12-06 00:12:35', '2022-04-04 07:30:50'),
+('117000830823875168641', 'devusayrshire', '5f4dcc3b5aa765d61d8327deb882cf99', '267593', 'jpg', 'content/theme/default/storage/img/profile/USER117000830823875168641.jpg', 'Usayr Shire', 'devusayrshire@gmail.com', '09154826025', 'Customer', 'What is the name of your favorite pet?', 'dog', 6, 0, 1, '', 'Shire', 'Usayr', '', 'African Daisy, Mahogany, Tirso Babiera, Ipil 7001, District-2, Zamboanga Sibugay, Region IX, Mindanao, Philippines, Asia', 0, '', '', '', 0, '2022-04-02 16:15:02', '2022-04-02 23:37:41'),
+('202204030001', 'cashier', '6ac2470ed8ccf204fd5ff89b32a355cf', '095324', '', '', 'Cashier C. Cashier', 'cashier@gmail.com', '12345678910', 'Cashier', 'What is the name of your favorite pet?', 'dog', 3, 0, 1, '', 'Cashier', 'Cashier', 'Cashier', 'Pob., Tungawan', 0, '', '', '', 0, '2022-04-04 00:00:51', '2022-04-03 16:04:13');
 
 -- --------------------------------------------------------
 
@@ -197,6 +203,13 @@ CREATE TABLE `tblsysuser_autoid` (
   `created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tblsysuser_autoid`
+--
+
+INSERT INTO `tblsysuser_autoid` (`id`, `fieldtxt`, `created`) VALUES
+(1, 'a', '2022-04-03 16:00:51');
+
 -- --------------------------------------------------------
 
 --
@@ -206,6 +219,7 @@ CREATE TABLE `tblsysuser_autoid` (
 CREATE TABLE `tblthemename` (
   `id` int(11) NOT NULL,
   `themename` varchar(254) NOT NULL,
+  `theme_title` text NOT NULL,
   `version` varchar(254) NOT NULL,
   `authorby` varchar(254) NOT NULL,
   `description` text NOT NULL,
@@ -220,9 +234,15 @@ CREATE TABLE `tblthemename` (
 -- Dumping data for table `tblthemename`
 --
 
-INSERT INTO `tblthemename` (`id`, `themename`, `version`, `authorby`, `description`, `tagz`, `thumbnailt`, `created`, `modified`, `deletedx`) VALUES
-(1, 'default', '1.0.0', 'Author B. Cone', 'Web Theme Skin is a custom bootstrap 4 design. It features custom styles for all the default blocks, and is built so that what you see in the editor looks like what youâ€™ll see on your website. Web Theme Skin is designed to be adaptable to a wide range of websites, whether youâ€™re running a photo blog, launching a new business, or supporting a non-profit. Featuring ample whitespace and modern sans-serif headlines paired with classic serif body text, itâ€™s built to be beautiful on all screen sizes.', 'custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready', 'Thumbnail.jpg', '2021-11-03 21:09:34', '2021-11-03 13:09:34', 0),
-(2, 'Sample', '0.0.0', 'None', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Thumbnail.jpg', '2021-11-03 21:09:34', '2021-11-03 13:09:34', 0);
+INSERT INTO `tblthemename` (`id`, `themename`, `theme_title`, `version`, `authorby`, `description`, `tagz`, `thumbnailt`, `created`, `modified`, `deletedx`) VALUES
+(1, 'default', 'Default', '1.0.0', 'Author B. Cone', 'Web Theme Skin is a custom bootstrap 4 design. It features custom styles for all the default blocks, and is built so that what you see in the editor looks like what youâ€™ll see on your website. Web Theme Skin is designed to be adaptable to a wide range of websites, whether youâ€™re running a photo blog, launching a new business, or supporting a non-profit. Featuring ample whitespace and modern sans-serif headlines paired with classic serif body text, itâ€™s built to be beautiful on all screen sizes.', 'custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready', 'Thumbnail.jpg', '2021-11-03 21:09:34', '2022-04-03 13:18:40', 0),
+(2, 'sample', 'Sample', '0.0.0', 'None', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Thumbnail.jpg', '2021-11-03 21:09:34', '2022-04-03 13:18:46', 0),
+(3, 'biryanibybrocky', 'Biryani By Brocky', '1.0.0', 'Jude Ele', 'Biryani is a mixed rice dish originating among the Muslims of the Indian subcontinent. It is made with Indian spices, rice, either with meat, or eggs or vegetables such as potatoes. Biryani is one of the most popular dishes in South Asia, as well as among the diaspora from the region.', 'custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready', 'Thumbnail.jpg', '2022-04-03 20:59:46', '2022-04-03 13:59:32', 0),
+(4, 'minksandpups', 'Minks & Pups Pet Supplies', '1.0.0', 'Christopher Shane Genil', 'Your new store of Pet Supplies that deliver happiness for Pets. We offer pet food, accessories and more. Send us a message for product information and prices.', 'custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready', 'Thumbnail.jpg', '2022-04-03 21:00:06', '2022-04-03 13:59:33', 0),
+(5, 'randvreviewcenter', 'R&V Review Center', '1.0.0', 'Elsie A. Garcia', 'The KJJs website is a website that bring the customers closer to thier dream fashion, and having a lot of good quality products that enables the customer to search, find, order and pay for the products and gives information and services that they need.', 'custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready', 'Thumbnail.jpg', '2022-04-03 21:00:14', '2022-04-03 13:59:45', 0),
+(6, 'termarshardwareandconstruction', 'Termar\'s Hardware and Constraction', '1.0.0', 'Engr. Allan Poserio', 'This page platform utilizes customers to facilely inquire perspective building material with the appearance of power tools and machineries.', 'custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready', 'Thumbnail.jpg', '2022-04-03 21:00:25', '2022-04-03 14:00:46', 0),
+(7, 'kjjsclosets', 'KJJs Closets', '1.0.0', 'Katherine Baay', 'The KJJs website is a website that bring the customers closer to thier dream fashion, and having a lot of good quality products that enables the customer to search, find, order and pay for the products and gives information and services that they need.', 'custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready', 'Thumbnail.jpg', '2022-04-03 21:00:37', '2022-04-03 14:01:05', 0),
+(8, 'bjptagrivet', 'BJPT General Merchant & Agrivet Supply', '1.0.0', 'Jan Ruflo', 'General Merchant and Agrivet Supply', 'custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready', 'Thumbnail.jpg', '2022-04-03 21:00:47', '2022-04-03 14:01:32', 0);
 
 -- --------------------------------------------------------
 
@@ -458,13 +478,6 @@ CREATE TABLE `tbl_autoid` (
   `price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_autoid`
---
-
-INSERT INTO `tbl_autoid` (`id`, `created`, `price`) VALUES
-(001, '2021-12-12 21:25:31', 0.1);
-
 -- --------------------------------------------------------
 
 --
@@ -485,15 +498,48 @@ CREATE TABLE `tbl_contactform` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `tbl_custom_script`
+--
+
+CREATE TABLE `tbl_custom_script` (
+  `cstyle` text NOT NULL,
+  `cscript` text NOT NULL,
+  `datecreated` datetime NOT NULL,
+  `datemodified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `lastuser` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_custom_script`
+--
+
+INSERT INTO `tbl_custom_script` (`cstyle`, `cscript`, `datecreated`, `datemodified`, `lastuser`) VALUES
+('/** Style **/', '// Script', '2022-04-03 06:57:38', '2022-04-03 05:04:08', '');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `tbl_headbanner`
 --
 
 CREATE TABLE `tbl_headbanner` (
-  `id` int(11) NOT NULL,
+  `hb_id` int(11) NOT NULL,
   `head_title` text DEFAULT NULL,
+  `head_title2` text NOT NULL,
   `sub_text` text DEFAULT NULL,
-  `img_loc` text DEFAULT NULL
+  `img_loc` text DEFAULT NULL,
+  `banner_width` text NOT NULL,
+  `content_alignment` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_headbanner`
+--
+
+INSERT INTO `tbl_headbanner` (`hb_id`, `head_title`, `head_title2`, `sub_text`, `img_loc`, `banner_width`, `content_alignment`) VALUES
+(1, 'Lorem ipsum', 'Ut enim ad minima veniam, quis nostrum exercitationem.', 'At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga.', 'banner02.jpg', 'w-100 mxw-half', 'text-left mr-auto'),
+(2, 'Sed ut perspiciatis', 'Duis aute irure dolor in reprehenderit', 'Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae.', 'banner01.jpg', 'w-100 mxw-half', 'text-right ml-auto'),
+(3, 'At vero eos et accusamus', 'Itaque earum rerum hic tenetur a sapiente delectus', 'Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur.', 'pexels-photo-3769747.webp', 'w-100 mxw-half', 'text-center mr-auto ml-auto');
 
 -- --------------------------------------------------------
 
@@ -502,14 +548,50 @@ CREATE TABLE `tbl_headbanner` (
 --
 
 CREATE TABLE `tbl_headbanner_btn` (
-  `id` int(11) NOT NULL,
+  `hbtn_id` int(11) NOT NULL,
   `hb_id` int(11) DEFAULT NULL,
-  `caption` text DEFAULT NULL,
-  `btn_class` text DEFAULT NULL,
-  `link_url` text DEFAULT NULL,
-  `alt` text DEFAULT NULL,
-  `tool_tip` text DEFAULT NULL
+  `caption` text NOT NULL,
+  `btn_class` text NOT NULL,
+  `link_url` text NOT NULL,
+  `alt` text NOT NULL,
+  `tool_tip` text NOT NULL,
+  `open_in` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_headbanner_btn`
+--
+
+INSERT INTO `tbl_headbanner_btn` (`hbtn_id`, `hb_id`, `caption`, `btn_class`, `link_url`, `alt`, `tool_tip`, `open_in`) VALUES
+(1, 1, 'Read more', 'btn-warning', '#', 'Read more', 'Read more', ''),
+(2, 1, 'Call now', 'btn-primary', '#', 'Call now', 'Call now', '');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_menu_frontpage`
+--
+
+CREATE TABLE `tbl_menu_frontpage` (
+  `menu_id` int(11) NOT NULL,
+  `menu_title` text NOT NULL,
+  `menu_slug` text NOT NULL,
+  `menu_open` text NOT NULL,
+  `menable` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tbl_menu_frontpage`
+--
+
+INSERT INTO `tbl_menu_frontpage` (`menu_id`, `menu_title`, `menu_slug`, `menu_open`, `menable`) VALUES
+(1, 'Home', 'home', '_self', 1),
+(2, 'Services', 'services', '_self', 0),
+(3, 'Products', 'productsitems', '_self', 1),
+(4, 'Portfolio', 'portfolio', '_self', 0),
+(5, 'Testimonials', 'testimonials', '_self', 1),
+(6, 'Contact Us', 'contactus', '_self', 1),
+(7, 'About', 'aboutus', '_self', 1);
 
 -- --------------------------------------------------------
 
@@ -723,15 +805,21 @@ ALTER TABLE `tbl_contactform`
 -- Indexes for table `tbl_headbanner`
 --
 ALTER TABLE `tbl_headbanner`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
+  ADD PRIMARY KEY (`hb_id`),
+  ADD UNIQUE KEY `id` (`hb_id`);
 
 --
 -- Indexes for table `tbl_headbanner_btn`
 --
 ALTER TABLE `tbl_headbanner_btn`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `id` (`id`);
+  ADD PRIMARY KEY (`hbtn_id`),
+  ADD UNIQUE KEY `id` (`hbtn_id`);
+
+--
+-- Indexes for table `tbl_menu_frontpage`
+--
+ALTER TABLE `tbl_menu_frontpage`
+  ADD PRIMARY KEY (`menu_id`);
 
 --
 -- Indexes for table `tbl_order_customer`
@@ -785,13 +873,13 @@ ALTER TABLE `tblsysuser_address`
 -- AUTO_INCREMENT for table `tblsysuser_autoid`
 --
 ALTER TABLE `tblsysuser_autoid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tblthemename`
 --
 ALTER TABLE `tblthemename`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `tbl_address_brgy`
@@ -833,7 +921,7 @@ ALTER TABLE `tbl_address_region`
 -- AUTO_INCREMENT for table `tbl_autoid`
 --
 ALTER TABLE `tbl_autoid`
-  MODIFY `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_contactform`
@@ -845,13 +933,19 @@ ALTER TABLE `tbl_contactform`
 -- AUTO_INCREMENT for table `tbl_headbanner`
 --
 ALTER TABLE `tbl_headbanner`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `hb_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tbl_headbanner_btn`
 --
 ALTER TABLE `tbl_headbanner_btn`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `hbtn_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `tbl_menu_frontpage`
+--
+ALTER TABLE `tbl_menu_frontpage`
+  MODIFY `menu_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_customer`

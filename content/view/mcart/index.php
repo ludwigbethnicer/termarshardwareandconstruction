@@ -1,6 +1,6 @@
 <?php
 	include_once "../../content/theme/".$themename."/frontend-navbar.php";
-	include_once "../../content/theme/".$themename."/carousel-header.php";
+	include_once "../../content/theme/".$themename."/slick-home-banner.php";
 
 	$cnn_order = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 	$qry_order = "SELECT * FROM tbl_order_customer WHERE customer_id=:customeer_id AND remarks=:processed ORDER BY order_id DESC LIMIT 1";
@@ -119,7 +119,7 @@
 										<td data-filter="<?php echo $img_item; ?>"><img class="w-30px" src="<?php echo $img_item; ?>"></td>
 										<td data-filter="<?php echo $item_name; ?>"><?php echo $item_name; ?></td>
 										<td data-filter="<?php echo $qty; ?>">
-											<input type="number" id="qtyedit<?php echo $id2; ?>" name="qty_edit" class="qty_edit none-zero-input" value="<?php echo $qty; ?>" onchange="fnChangeQty(<?php echo $id2; ?>,this.value)" step="1" min="1" max="<?php echo $cstock; ?>"  onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
+											<input type="number" id="qtyedit<?php echo $id2; ?>" name="qty_edit" class="qty_edit none-zero-input" value="<?php echo $qty; ?>" onchange="fnChangeQty(<?php echo $id2; ?>,this.value,<?php echo $item_id; ?>)" step="1" min="1" max="<?php echo $cstock; ?>"  onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
 										</td>
 										<td data-filter="<?php echo $unit; ?>"><?php echo $unit; ?></td>
 										<td data-filter="<?php echo $price; ?>"><?php echo $dcurrencyx.$price; ?></td>
@@ -400,8 +400,8 @@
 		} );
 	});
 
-	function fnChangeQty(id,qty) {
-		window.location = "../../content/view/mcart/update.php?itmordid="+id+"&zqty="+qty;
+	function fnChangeQty(id,qty,itemid) {
+		window.location = "../../content/view/mcart/update.php?itmordid="+id+"&zqty="+qty+"&itemid="+itemid;
 	}
 
 	function trash(id,no) {

@@ -27,6 +27,23 @@
 	<link rel="stylesheet" href="<?php echo $domainhome; ?>assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo $domainhome; ?>content/theme/<?php echo $themename; ?>/assets/css/style.css">
 	<link rel="stylesheet" href="<?php echo $domainhome; ?>content/theme/<?php echo $themename; ?>/assets/css/custom-style.css">
+	<style>
+		.navbar-toggler-icon {
+			background-image: url('<?php echo $domainhome."storage/img/navbar-toggler-icon.svg"; ?>');
+		}
+
+		#navbar .dropdown-menu {
+			background-color: <?php echo $forthcolor; ?>;
+		}
+
+		<?php echo $customstyle; ?>
+
+		@media only screen and (max-width: 575px) {
+			#secnavbr {
+				background-color: <?php echo $primarycolor; ?>!important;
+			}
+		}
+	</style>
 	<script src="<?php echo $domainhome; ?>assets/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="<?php echo $domainhome; ?>assets/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="<?php echo $domainhome; ?>assets/bootstrap/4.5.2/js/bootstrap.min.js"></script>

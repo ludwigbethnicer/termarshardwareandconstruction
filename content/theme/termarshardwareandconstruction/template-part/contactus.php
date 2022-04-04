@@ -1,4 +1,4 @@
-	<div id="contact" class="container">
+	<div id="contact" class="<?php echo $contentwidth; ?>">
 		<h2 class="text-center">Contact Us</h2>
 		<br>
 		<div class="row">
@@ -7,7 +7,7 @@
 				<p><a class="text-body" href="//google.com/maps/place/@<?php echo $geomap; ?>,17z" target="_blank"><span class="fas fa-map-marker-alt"></span> <?php echo $maddress ?></a></p>
 				<p><a class="text-body" href="tel:<?php echo $mobileno ?>"><span class="fas fa-phone"></span> <?php echo $mobileno ?></a></p>
 				<p><a class="text-body" href="mailto:<?php echo $memail ?>"><span class="fas fa-envelope-square"></span> <?php echo $memail ?></a></p>
-				<p><a class="text-body" href="//facebook.com" target="_blank"><span class="fab fa-facebook-square"></span> facebookname | facebookid</a></p>
+				<p><a class="text-body" href="//<?php echo $facebook ?>" target="_blank"><span class="fab fa-facebook-square"></span> <?php echo $facebook ?></a></p>
 			</div>
 			<div class="col-sm-7 slideanim">
 				<form method="post" class="needs-validation" novalidate>
@@ -47,7 +47,7 @@
 					</div>
 					<div class="row">
 						<div class="col-sm-12 form-group">
-							<input type="submit" name="btnSend" value="Send" class="btn btn-warning pull-right w-100">
+							<input type="submit" name="btnSend" value="Send" class="<?php echo 'btn '.$buttonsize.' pull-right w-100'; ?>" style="<?php echo 'background-color: '.$primarycolor.';'; ?>">
 						</div>
 					</div>
 					<div class="form-group">

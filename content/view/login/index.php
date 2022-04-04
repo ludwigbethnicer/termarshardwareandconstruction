@@ -1,7 +1,6 @@
 <?php
 
-	if(empty($_SESSION["usercode"])) {
-		
+	if(empty($_SESSION["usercode"]) || empty($_SESSION["username"]) || empty($_SESSION["fullname"]) || empty($_SESSION["ulevpos"]) || empty($_SESSION["surname"]) || empty($_SESSION["firstname"]) || empty($_SESSION["middlename"]) || empty($_SESSION["postitle"])) {
 	} else {
 		header('location:../../');
 	}

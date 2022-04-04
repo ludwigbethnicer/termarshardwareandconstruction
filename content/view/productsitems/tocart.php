@@ -36,8 +36,15 @@
 					$unit8 = $row8['unit'];
 					$sellprice8 = $row8['sell_price'];
 					$extnem8 = $row8['extnem'];
-					$totalamt8 = $nqty*$sellprice8;
-					$cstock8 = $row8['stock_available'];
+
+					$actualqty = $row8['stock_available'];
+					if ($nqty > $actualqty) {
+						$totalamt8 = $actualqty*$sellprice8;
+						$nqty01 = $actualqty;
+					} else {
+						$totalamt8 = $nqty*$sellprice8;
+						$nqty01 = $nqty;
+					}
 				}
 
 				$qry9 = "SELECT * FROM tbl_order_item WHERE order_id=:orderid9 AND item_id=:itemid9 AND deleted=0 LIMIT 1";
@@ -56,7 +63,7 @@
 						$fqty9 = $row9['qty'];		
 						$fqty9plus = $fqty8+$fqty9;
 						$totalamt9 = $fqty9plus*$sellprice8;
-						$cstock9 = $cstock8;
+						$cstock9 = $nqty01;
 					}
 
 					if ($fqty9plus>$cstock9) {
@@ -85,12 +92,12 @@
 						item_id		= '$itemid9', 
 						barcode		= '$barcode8', 
 						item_name	= '$name8', 
-						qty			= '$nqty', 
+						qty			= '$nqty01', 
 						unit		= '$unit8', 
 						price		= '$sellprice8', 
 						total_amt	= '$totalamt8', 
 						extnem		= '$extnem8', 
-						cstock		= '$cstock8'
+						cstock		= '$nqty01'
 						";
 					$cnn->exec($qry11);
 					echo '<script>window.open("../../../routes/productsitems/","_self");</script>';
@@ -183,7 +190,16 @@
 						$fqty6 = $nqty;
 						$sellprice6 = $row6['sell_price'];
 						$extnem6 = $row6['extnem'];
-						$totalamt6 = $sellprice6*$fqty6;
+
+						$actualqty6 = $row6['stock_available'];
+						if ($fqty6 > $actualqty6) {
+							$totalamt6 = $sellprice6*$actualqty6;
+							$sulodqty = $actualqty6;
+						} else {
+							$totalamt6 = $sellprice6*$fqty6;
+							$sulodqty = $fqty6;
+						}
+
 						$cstock6 = $row6['stock_available'];
 					}
 
@@ -192,7 +208,7 @@
 						item_id		= '$itemid6', 
 						barcode		= '$barcode6', 
 						item_name	= '$name6', 
-						qty			= '$fqty6', 
+						qty			= '$sulodqty', 
 						unit		= '$unit6', 
 						price		= '$sellprice6', 
 						total_amt	= '$totalamt6', 

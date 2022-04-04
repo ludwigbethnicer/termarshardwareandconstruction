@@ -36,12 +36,10 @@
 	}
 </script>
 
-	<div id="productitemz" class="container">
+	<div id="productitemz" class="<?php echo $contentwidth; ?>">
+		<h2>Products</h2>
 		<div class="pt-5 pb-5">
-			<h2>Products</h2>
-
-			<div class="card-deck align-items-center slick-products">
-
+			<div class="card-deck align-items-center slick-products slideanim">
 			<?php
 				if ($num>0) {
 					foreach ($stmt as $row) {

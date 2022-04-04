@@ -1,6 +1,5 @@
 <?php
 
-	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 	try {
 		if (isset($_POST["btnGContin"])) {
 			if (empty($_POST["gogid"]) || empty($_POST["username2"]) || empty($_POST["email2"]) || empty($_POST["fullname2"]) || empty($_POST["lastname2"]) || empty($_POST["firstname2"]) || empty($_POST["tokenidz2"])) {
@@ -9,6 +8,7 @@
 					echo 'Access denied!';
 				echo '</div>';
 			} else {
+				$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 				$query = "SELECT * FROM tblsysuser WHERE username=:username2 OR uemail=:email2 OR usercode=:gogid LIMIT 1";
 				$statement = $cnn->prepare($query);
 				$gogid = $_POST['gogid'];
@@ -26,11 +26,11 @@
 						$sttzus = $row_uzr['ustatz'];
 					}
 
-					if($dletd==1){
+					if($dletd==1) {
 						echo "<script>alert('Access denied! Please contact the support @ ".$mobileno."');</script>";
-					}elseif($sttzus==0){
+					} elseif ($sttzus==0) {
 						echo "<script>alert('Your account has been disabled! Please contact the support @ ".$mobileno."');</script>";
-					}else{
+					} else {
 						$_SESSION["usercode"] = $gogid;
 						$_SESSION["username"] = $username2;
 						$_SESSION["fullname"] = $_POST["fullname2"];
@@ -99,6 +99,8 @@
 					header('location:../../');
 				}
 			}
+		} else {
+			echo "<p class='text-center'>Login to your account.</p>";
 		}
 	} catch (PDOException $error) {
 		die('ERROR: ' . $error->getMessage());
